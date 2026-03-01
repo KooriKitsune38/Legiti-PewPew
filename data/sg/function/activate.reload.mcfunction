@@ -1,0 +1,2 @@
+$item modify entity @s weapon.mainhand {"function":"set_components","components":{"minecraft:damage":$(reload)}}
+$item modify entity @s weapon.mainhand {"function":"set_components","components":{"minecraft:max_damage":$(reload)}}

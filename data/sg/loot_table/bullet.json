@@ -11,12 +11,16 @@
                         {
                             "function": "set_components",
                             "components": {
-                                "minecraft:custom_name":"{\"text\":\"Bullet\",\"italic\":false}",
-                                "minecraft:hide_additional_tooltip":{},
+                                "minecraft:custom_name":{"text":"Bullet","italic":false},
                                 "minecraft:custom_data": {
                                     "sg.Bullet":1
                                 },
-                                "minecraft:custom_model_data": 3800
+                                "max_stack_size": 99,
+                                "custom_model_data": {
+                                    "strings": [
+                                        "sg.bullet"
+                                    ]
+                                }
                             }
                         }
                     ]

@@ -6,7 +6,7 @@ execute unless data entity @s SelectedItem.components{"minecraft:damage":0} run 
 execute store result score .current k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".loadedAmmo
 execute store result score .usage k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".ammoUsage
 
-execute if score .usage k.Values > .current k.Values run return run function sg:reload.gun with entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
+execute if score .usage k.Values > .current k.Values run return run function sg:reload.gun
 
 # Shoot
 execute if predicate sg:no_ammo run return fail
@@ -19,16 +19,17 @@ execute store result score .max k.Values run data get entity @s SelectedItem.com
 data modify storage k.temp:temp gunInfo set from entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
 
 tag @s add .temp
+scoreboard players reset .temp k.Values
 execute anchored eyes positioned ^ ^ ^.5 run function sg:raycast
 tag @s remove .temp
 
 function sg:recoil with entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
 
 #> Remove Bullet
-execute store result score .temp k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".loadedAmmo
-execute store result score .usage k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".ammoUsage
-scoreboard players operation .temp k.Values -= .usage k.Values
-execute store result storage k.temp:temp value byte 1 run scoreboard players get .temp k.Values
+#execute store result score .temp k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".loadedAmmo
+#execute store result score .usage k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".ammoUsage
+scoreboard players operation .current k.Values -= .usage k.Values
+execute store result storage k.temp:temp value int 1 run scoreboard players get .current k.Values
 function sg:set.ammo.amount with storage k.temp:temp
 
 # Sounds
