@@ -56,27 +56,17 @@
                                 ],
                                 "minecraft:lore": [
                                     {
-                                        "text": "Ammo Usage: 5",
+                                        "text": "Exploding Blåhaj!",
                                         "color": "gray",
                                         "italic": false
                                     }
                                 ],
                                 "minecraft:custom_data": {
                                     "sg.Gun": {
-                                        "rayDistance": 80,
                                         "recoilAngle": 1,
-                                        "maxAmmo": 10,
-                                        "loadedAmmo": 0,
-                                        "ammoName": ".transBeam",
-                                        "ammoUsage": "5",
-                                        "damage": 20,
-                                        "damage_type": "out_of_world",
-                                        "cooldown": 80,
-                                        "command":"function sg:special/trans_explosion",
-                                        "explosion": {
-                                            "active": false,
-                                            "can_damage_ground": false
-                                        },
+                                        "pewName": ".transBeam",
+                                        "ammoUsage": "Null",
+                                        "special":"trans_explosion",
                                         "sound": "minecraft:entity.cat.ambient"
                                     }
                                 },

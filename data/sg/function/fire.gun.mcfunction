@@ -14,10 +14,11 @@ execute if score @s sg.PewTokens < .usage k.Values run return fail
 #execute if score .usage k.Values > @s sg.PewTokens run return run function sg:reload.gun
 
 #> Start Cooldown
-function sg:activate.cooldown with entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
+function sg:get.cooldown with entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
+function sg:activate.cooldown with storage k.temp:temp
 
 #> Instantiate Raycast
-execute store result score .max k.Values run data get entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun".rayDistance
+scoreboard players set .max k.Values 100
 data modify storage k.temp:temp gunInfo set from entity @s SelectedItem.components."minecraft:custom_data"."sg.Gun"
 
 tag @s add .temp

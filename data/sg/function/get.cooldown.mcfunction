@@ -1,0 +1,1 @@
+$execute store result storage k.temp:temp cooldown int 1 run scoreboard players get $(pewName) sg.PewCooldown
