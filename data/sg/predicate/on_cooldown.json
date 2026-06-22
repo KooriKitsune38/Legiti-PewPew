@@ -1,0 +1,36 @@
+{
+    "condition": "all_of",
+    "terms": [
+        {
+            "condition": "entity_properties",
+            "entity": "this",
+            "predicate": {
+                "equipment":{
+                    "mainhand": {
+                        "predicates": {
+                            "custom_data": {
+                                "sg.Gun":{}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "condition": "inverted",
+            "term": {
+                "condition": "entity_properties",
+                "entity": "this",
+                "predicate": {
+                    "equipment": {
+                        "mainhand": {
+                            "components": {
+                                "damage": 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

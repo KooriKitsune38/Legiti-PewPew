@@ -1,2 +1,2 @@
-execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{sg.Gun:{}}}}}] unless data entity @s SelectedItem.components{"minecraft:damage":0} run function sg:calc.cooldown
-execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{sg.Gun:{}}}}}] run title @s actionbar [{"text":"- Ammo: ","color":"gray"},{"entity": "@s","nbt":"SelectedItem.components.\"minecraft:custom_data\".\"sg.Gun\".loadedAmmo","color":"white"},{"text":"/"},{"entity": "@s","nbt":"SelectedItem.components.\"minecraft:custom_data\".\"sg.Gun\".maxAmmo","color":"white"},{"text":" -"}]
+execute as @a[predicate=sg:on_cooldown] run function sg:calc.cooldown
+execute as @a[predicate=sg:holding_gun] run title @s actionbar [{"text":"- Tokens: ","color":"gray"},{score:{name:"@s",objective:"sg.PewTokens"},"color":"white"},{"text":"/"},{"entity": "@s","nbt":"SelectedItem.components.\"minecraft:custom_data\".\"sg.Gun\".ammoUsage","color":"white"},{"text":" -"}]
