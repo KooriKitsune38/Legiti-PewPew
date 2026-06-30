@@ -3,6 +3,9 @@ advancement revoke @s only sg:used.gun
 execute unless data entity @s SelectedItem.components{"minecraft:damage":0} run return fail
 scoreboard players add @s sg.PewTokens 0
 
+tag @s remove legitivancements.can_parkour_real
+tag @s remove legitivancements.can_parkour
+
 # Shoot
 execute if score @s sg.PewTokens matches ..0 run return fail
 #execute if predicate sg:no_ammo run return fail
